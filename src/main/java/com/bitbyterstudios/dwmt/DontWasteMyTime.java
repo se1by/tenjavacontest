@@ -1,8 +1,8 @@
-package main.java.com.bitbyterstudios.dwmt;
+package com.bitbyterstudios.dwmt;
 
-import main.java.com.bitbyterstudios.dwmt.time.ITimeManager;
-import main.java.com.bitbyterstudios.dwmt.time.MysqlTimeManager;
-import main.java.com.bitbyterstudios.dwmt.time.YamlTimeManager;
+import com.bitbyterstudios.dwmt.time.ITimeManager;
+import com.bitbyterstudios.dwmt.time.MysqlTimeManager;
+import com.bitbyterstudios.dwmt.time.YamlTimeManager;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -46,11 +46,13 @@ public class DontWasteMyTime extends JavaPlugin {
         }
 
         getCommand("intime").setExecutor(new TimeExecutor(this));
+
+        getServer().getPluginManager().registerEvents(new EventListener(this), this);
     }
 
     @Override
     public void onDisable() {
-        counter.cancel();
+        getTimeManager().saveCache();
     }
 
     public String getPrefix() {
@@ -90,7 +92,7 @@ public class DontWasteMyTime extends JavaPlugin {
             @Override
             public void run() {
                for (Player p :getServer().getOnlinePlayers()) {
-                    getTimeManager().subtract(p.getName(), (long) (period * 0.00069));       //0,00069 = ingame seconds per tick
+                    getTimeManager().subtract(p.getName(), (long) (period * 3.623188406));       //3,623188406 = ingame seconds per tick
                     if (getTimeManager().getTime(p.getName()).getSeconds() < 0) {
                         p.setHealth(0);
                     }

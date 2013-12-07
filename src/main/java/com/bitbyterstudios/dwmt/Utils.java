@@ -1,4 +1,4 @@
-package main.java.com.bitbyterstudios.dwmt;
+package com.bitbyterstudios.dwmt;
 
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.metadata.MetadataValue;

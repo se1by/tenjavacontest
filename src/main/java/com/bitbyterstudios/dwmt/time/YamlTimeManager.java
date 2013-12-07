@@ -1,6 +1,6 @@
-package main.java.com.bitbyterstudios.dwmt.time;
+package com.bitbyterstudios.dwmt.time;
 
-import main.java.com.bitbyterstudios.dwmt.DontWasteMyTime;
+import com.bitbyterstudios.dwmt.DontWasteMyTime;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,6 +30,24 @@ public class YamlTimeManager implements ITimeManager {
        cachedTime.put(name, time);
        plugin.getTimeConfig().set(name, time.getSeconds());
        plugin.saveTimeConfig();
+    }
+
+    @Override
+    public void setTime(String name, long seconds) {
+       setTime(name, new Time(seconds));
+    }
+
+    @Override
+    public boolean hasTime(String name) {
+        if (cachedTime.containsKey(name)) {
+            System.out.println("cached");
+            return true;
+        }
+        if (plugin.getTimeConfig().contains(name)) {
+            System.out.println("in config");
+            return true;
+        }
+        return false;
     }
 
     @Override

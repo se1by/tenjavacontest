@@ -1,4 +1,4 @@
-package main.java.com.bitbyterstudios.dwmt.time;
+package com.bitbyterstudios.dwmt.time;
 
 import java.util.HashMap;
 
@@ -16,6 +16,16 @@ public class MysqlTimeManager implements ITimeManager{
     public void setTime(String name, Time time) {
         cachedTime.put(name, time);
         //TODO: ADD MYSQL ACCESS
+    }
+
+    @Override
+    public void setTime(String name, long seconds) {
+
+    }
+
+    @Override
+    public boolean hasTime(String name) {
+        return false;
     }
 
     public void subtract(String name, long seconds) {

@@ -1,5 +1,6 @@
-package main.java.com.bitbyterstudios.dwmt;
+package com.bitbyterstudios.dwmt;
 
+import com.bitbyterstudios.dwmt.time.Time;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -30,6 +31,8 @@ public class TimeExecutor implements CommandExecutor {
             handleDare(sender, args);
         } else if ("settime".equalsIgnoreCase(args[0])) {
             handleSetTime(sender, args);
+        } else if ("gettime".equalsIgnoreCase(args[0])) {
+            handleGetTime(sender, args);
         } else if ("addtime".equalsIgnoreCase(args[0])) {
             handleAddTime(sender, args);
         } else if ("kitten".equalsIgnoreCase(args[0])) {
@@ -144,7 +147,7 @@ public class TimeExecutor implements CommandExecutor {
             sender.sendMessage(ChatColor.RED + "You don't have permission for that!");
             return;
         }
-        if (args.length < 4 || !Utils.isInt(args[2])) {
+        if (args.length < 3 || !Utils.isInt(args[2])) {
             showSetTimeHelp(sender);
             return;
         }
@@ -157,12 +160,27 @@ public class TimeExecutor implements CommandExecutor {
         sender.sendMessage(plugin.getPrefix() + "Set time for " + name + " to " + amount + " seconds.");
     }
 
+    private void handleGetTime(CommandSender sender, String[] args) {
+        if (args.length == 2) {
+            if (!sender.hasPermission(plugin.getName() + ".See")) {
+                sender.sendMessage(ChatColor.RED + "You don't have permission for that!");
+                return;
+            }
+
+            Time t = plugin.getTimeManager().getTime(args[1]);
+
+            sender.sendMessage(plugin.getPrefix() + args[1] + " got " + t.toString());
+            return;
+        }
+        sender.sendMessage(plugin.getPrefix() + "You got " + plugin.getTimeManager().getTime(sender.getName()).toString());
+    }
+
     private void handleAddTime(CommandSender sender, String[] args) {
         if (!sender.hasPermission(plugin.getName() + ".admin")) {
             sender.sendMessage(ChatColor.RED + "You don't have permission for that!");
             return;
         }
-        if (args.length < 4 || !Utils.isInt(args[2])) {
+        if (args.length < 3 || !Utils.isInt(args[2])) {
             showAddTimeHelp(sender);
             return;
         }

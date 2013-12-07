@@ -1,4 +1,4 @@
-package main.java.com.bitbyterstudios.dwmt.time;
+package com.bitbyterstudios.dwmt.time;
 
 public class Time {
 
