@@ -50,6 +50,8 @@ Commands
 * addtime \[name\] \[amount\] adds \[amount\] to players time, needs "DWMT.admin"
 * dare \[name/accept|decline\] \[death\] dare another player to fight, he can accept or decline it. write death to remove the abort code, needs "DWMT.dare"
 * kitten meow :3
+
+Developed for (Craft)bukkit 1.6.4-R2.0
 That's it!
 ==========
 If I forgot something, just ask
