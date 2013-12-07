@@ -1,5 +1,6 @@
 package com.bitbyterstudios.dwmt;
 
+import com.bitbyterstudios.dwmt.fight.FightHandle;
 import com.bitbyterstudios.dwmt.time.Time;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -195,6 +196,8 @@ public class TimeExecutor implements CommandExecutor {
 
     private void startFight(Player player, Player otherPlayer, boolean death) {
         //TODO: ADD TWO CONVERSATIONS FOR FIGHT
+        FightHandle handle = new FightHandle(plugin, player, otherPlayer, death);
+        handle.start();
     }
 
     private void showHelp(CommandSender sender) {

@@ -1,2 +1,5 @@
 time_manager: yaml
 counter_interval: 200
+out_of_time_behaviour: BAN
+kick_message: Your time has come...
+fight_time_loss: 30
