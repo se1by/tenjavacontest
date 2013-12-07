@@ -51,16 +51,22 @@ public class FightHandle {
 
             }
         };
-        plugin.getServer().getScheduler().runTaskTimer(plugin, runner, 0, 1);
+        runner.runTaskTimer(plugin, 0, 1);
         conv1 = factory.buildConversation(player1);
+        conv1.begin();
         conv2 = factory.buildConversation(player2);
+        conv2.begin();
     }
 
     public void end() {
         runner.cancel();
         conv1.abandon();
         conv2.abandon();
+        System.out.println("ended");
     }
 
 
+    public void setUpperHand(String upperHand) {
+        this.upperHand = upperHand;
+    }
 }

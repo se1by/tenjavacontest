@@ -9,6 +9,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
+import org.bukkit.metadata.MetadataValue;
 
 public class TimeExecutor implements CommandExecutor {
 
@@ -26,6 +27,10 @@ public class TimeExecutor implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (args.length == 0) {
+            showHelp(sender);
+            return true;
+        }
         if ("transfer".equalsIgnoreCase(args[0])) {
             handleTransfer(sender, args);
         } else if ("dare".equalsIgnoreCase(args[0])) {
@@ -91,7 +96,8 @@ public class TimeExecutor implements CommandExecutor {
                 return;
             }
 
-            String otherName = Utils.getMetaData(player, plugin.getName() + ".dared", plugin).asString();
+            MetadataValue mdv = Utils.getMetaData(player, plugin.getName() + ".dared", plugin);
+            String otherName = mdv.asString();
             Player otherPlayer = Bukkit.getPlayerExact(otherName);
 
             if ("decline".equalsIgnoreCase(args[1])) {
@@ -109,7 +115,7 @@ public class TimeExecutor implements CommandExecutor {
 
                 boolean death = false;
 
-                if ("death".equalsIgnoreCase(args[2])) {
+                if (args.length > 2 && "death".equalsIgnoreCase(args[2])) {
                     death = true;
                 }
 
@@ -120,7 +126,7 @@ public class TimeExecutor implements CommandExecutor {
 
         Player toDare = Bukkit.getPlayerExact(args[1]);
         boolean death = false;
-        if ("death".equalsIgnoreCase(args[2])) {
+        if (args.length > 2 && "death".equalsIgnoreCase(args[2])) {
             death = true;
         }
         if (toDare == null) {

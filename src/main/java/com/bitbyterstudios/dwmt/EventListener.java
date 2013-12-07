@@ -14,7 +14,6 @@ public class EventListener implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        System.out.println("join");
         if (!plugin.getTimeManager().hasTime(event.getPlayer().getName())) {
             event.getPlayer().sendMessage(plugin.getPrefix() + "Happy birthday!\n" +
                     "25 years is a long time to be a kid, now it gets serious.\n" +

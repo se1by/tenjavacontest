@@ -13,6 +13,7 @@ public class FightAbandonendListener implements ConversationAbandonedListener {
 
     @Override
     public void conversationAbandoned(ConversationAbandonedEvent conversationAbandonedEvent) {
+        System.out.println("abandoned");
         handle.end();
     }
 }

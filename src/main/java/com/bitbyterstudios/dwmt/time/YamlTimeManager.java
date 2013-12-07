@@ -40,11 +40,9 @@ public class YamlTimeManager implements ITimeManager {
     @Override
     public boolean hasTime(String name) {
         if (cachedTime.containsKey(name)) {
-            System.out.println("cached");
             return true;
         }
         if (plugin.getTimeConfig().contains(name)) {
-            System.out.println("in config");
             return true;
         }
         return false;

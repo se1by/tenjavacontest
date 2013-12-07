@@ -57,6 +57,7 @@ public class DontWasteMyTime extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        counter.cancel();
         getTimeManager().saveCache();
     }
 
@@ -111,7 +112,7 @@ public class DontWasteMyTime extends JavaPlugin {
                }
             }
         };
-        getServer().getScheduler().runTaskTimer(this, counter, 0, period);
+        counter.runTaskTimer(this, 0 , period);
     }
 
 }
