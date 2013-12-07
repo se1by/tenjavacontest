@@ -45,10 +45,8 @@ public class FightHandle {
                 }
                 if (upperHand.equals(player1.getName())) {
                     plugin.getTimeManager().transfer(player2.getName(), player1.getName(), (int) loss_per_tick);
-                    System.out.println("transfer");
                 } else {
                     plugin.getTimeManager().transfer(player1.getName(), player2.getName(), (int) loss_per_tick);
-                    System.out.println("transfer");
                 }
 
             }

@@ -44,12 +44,12 @@ out_of_time_behaviour will trigger every lower action, e.g. a KICK also KILL the
 Commands
 ========
 * /intime //the basic command, everything else is an argument to that command
-⋅⋅⋅* transfer \[name\] \[amount\] pretty much self explaining, isn't it. User needs permission "DWMT.transfer".
-⋅⋅⋅* gettime \[name\] get the clock of themself (without \[name\]), or another player (another player needs "DWMT.see" for that)
-⋅⋅⋅* settime \[name\] \[amount\] sets a players time to \[amount\], needs "DWMT.admin"
-⋅⋅⋅* addtime \[name\] \[amount\] adds \[amount\] to players time, needs "DWMT.admin"
-⋅⋅⋅* dare \[name/accept|decline\] \[death\] dare another player to fight, he can accept or decline it. write death to remove the abort code, needs "DWMT.dare"
-⋅⋅⋅* kitten meow :3
+* transfer \[name\] \[amount\] pretty much self explaining, isn't it. User needs permission "DWMT.transfer".
+* gettime \[name\] get the clock of themself (without \[name\]), or another player (another player needs "DWMT.see" for that)
+* settime \[name\] \[amount\] sets a players time to \[amount\], needs "DWMT.admin"
+* addtime \[name\] \[amount\] adds \[amount\] to players time, needs "DWMT.admin"
+* dare \[name/accept|decline\] \[death\] dare another player to fight, he can accept or decline it. write death to remove the abort code, needs "DWMT.dare"
+* kitten meow :3
 That's it!
 ==========
 If I forgot something, just ask

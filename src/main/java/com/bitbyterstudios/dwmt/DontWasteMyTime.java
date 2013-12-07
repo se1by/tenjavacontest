@@ -33,7 +33,7 @@ public class DontWasteMyTime extends JavaPlugin {
         if ("yaml".equalsIgnoreCase(getConfig().getString("time_manager"))) {
             timeManager = new YamlTimeManager(this);
         } else if ("mysql".equalsIgnoreCase(getConfig().getString("time_manager"))) {
-            timeManager = new MysqlTimeManager();
+            //timeManager = new MysqlTimeManager();             MYSQL NOT WORKING ATM!
         }
 
         behaviour = OutOfTime.valueOf(getConfig().getString("out_of_time_behaviour").toUpperCase());

@@ -56,7 +56,18 @@ public class YamlTimeManager implements ITimeManager {
     @Override
     public void transfer(String giver, String receiver, int seconds) {
         subtract(giver, seconds);
+        save(giver);
         subtract(receiver, seconds * -1);
+        save(receiver);
+    }
+
+    @Override
+    public void save(String name) {
+        if (!cachedTime.containsKey(name)) {
+            return;
+        }
+        plugin.getTimeConfig().set(name, cachedTime.get(name).getSeconds());
+        plugin.saveTimeConfig();
     }
 
     @Override
