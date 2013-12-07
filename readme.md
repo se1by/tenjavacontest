@@ -33,23 +33,23 @@ abort.
 
 Config stuff
 ===========
-time_manager: yaml //You can choose between yaml and mysql to save the times of your users, but mysql isn't implemented yet due to the time
-counter_interval: 200 //How often the plugin checks and deducts bygone time on the servers.
-out_of_time_behaviour: BAN //What the plugin should do with people which time ran out. BAN, KICK, KILL
-kick_message: Your time has come... //I case you decide to kick them, which message should be shown?
-fight_time_loss: 30 //How much seconds should they lose every tick in a fight?
+*time_manager: yaml //You can choose between yaml and mysql to save the times of your users, but mysql isn't implemented yet due to the time
+*counter_interval: 200 //How often the plugin checks and deducts bygone time on the servers.
+*out_of_time_behaviour: BAN //What the plugin should do with people which time ran out. BAN, KICK, KILL
+*kick_message: Your time has come... //I case you decide to kick them, which message should be shown?
+*fight_time_loss: 30 //How much seconds should they lose every tick in a fight?
 
 out_of_time_behaviour will trigger every lower action, e.g. a KICK also KILL the player.
 
 Commands
 ========
-/intime //the basic command, everything else is an argument to that command
-transfer \[name\] \[amount\] pretty much self explaining, isn't it. User needs permission "DWMT.transfer".
-gettime \[name\] get the clock of themself (without \[name\]), or another player (another player needs "DWMT.see" for that)
-settime \[name\] \[amount\] sets a players time to \[amount\], needs "DWMT.admin"
-addtime \[name\] \[amount\] adds \[amount\] to players time, needs "DWMT.admin"
-dare \[name/accept|decline\] \[death\] dare another player to fight, he can accept or decline it. write death to remove the abort code, needs "DWMT.dare"
-
+*/intime //the basic command, everything else is an argument to that command
+--*transfer \[name\] \[amount\] pretty much self explaining, isn't it. User needs permission "DWMT.transfer".
+--*gettime \[name\] get the clock of themself (without \[name\]), or another player (another player needs "DWMT.see" for that)
+--*settime \[name\] \[amount\] sets a players time to \[amount\], needs "DWMT.admin"
+--*addtime \[name\] \[amount\] adds \[amount\] to players time, needs "DWMT.admin"
+--*dare \[name/accept|decline\] \[death\] dare another player to fight, he can accept or decline it. write death to remove the abort code, needs "DWMT.dare"
+--*kitten meow :3
 That's it!
 ==========
 If I forgot something, just ask
