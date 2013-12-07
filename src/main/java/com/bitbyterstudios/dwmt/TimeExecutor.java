@@ -11,6 +11,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
 
+import java.util.Arrays;
+
 public class TimeExecutor implements CommandExecutor {
 
     private DontWasteMyTime plugin;
@@ -54,13 +56,22 @@ public class TimeExecutor implements CommandExecutor {
             sender.sendMessage(ChatColor.RED + "You don't have permission for that!");
             return;
         }
-        if (args.length < 3 || !Utils.isInt(args[2])) {
+        if (args.length < 3) {
             showTransferHelp(sender);
             return;
         }
 
         String name = args[1];
-        int amount = Integer.parseInt(args[2]); //TODO: parse 1y 2mo 3w 4d 5h 6mi 7s
+        int amount = 0;
+        if (!Utils.isInt(args[2])) {
+            try {
+                amount = (int) Utils.parseToSeconds(Arrays.copyOfRange(args, 1, args.length));
+            } catch (IllegalArgumentException e) {
+                showTransferHelp(sender);
+            }
+        } else {
+            amount = Integer.parseInt(args[2]);
+        }
 
         if (Bukkit.getPlayerExact(name) == null) {
             sender.sendMessage(ChatColor.RED + name + " isn't online.");
@@ -169,7 +180,7 @@ public class TimeExecutor implements CommandExecutor {
 
     private void handleGetTime(CommandSender sender, String[] args) {
         if (args.length == 2) {
-            if (!sender.hasPermission(plugin.getName() + ".See")) {
+            if (!sender.hasPermission(plugin.getName() + ".see")) {
                 sender.sendMessage(ChatColor.RED + "You don't have permission for that!");
                 return;
             }
@@ -201,7 +212,6 @@ public class TimeExecutor implements CommandExecutor {
     }
 
     private void startFight(Player player, Player otherPlayer, boolean death) {
-        //TODO: ADD TWO CONVERSATIONS FOR FIGHT
         FightHandle handle = new FightHandle(plugin, player, otherPlayer, death);
         handle.start();
     }
@@ -222,10 +232,10 @@ public class TimeExecutor implements CommandExecutor {
     }
 
     private void showSetTimeHelp(CommandSender sender) {
-        sender.sendMessage("/intime setTime [name] [amount in seconds]"); //TODO: add parse as seen above
+        sender.sendMessage("/intime setTime [name] [amount in seconds/parse(see readme)]");
     }
 
     private void showAddTimeHelp(CommandSender sender) {
-        sender.sendMessage("/intime addTime [name] [amount in seconds]"); //TODO: add parse as seen above
+        sender.sendMessage("/intime addTime [name] [amount in seconds/parse(see readme)]");
     }
 }

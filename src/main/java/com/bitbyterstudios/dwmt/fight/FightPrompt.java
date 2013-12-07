@@ -29,10 +29,8 @@ public class FightPrompt implements Prompt {
     @Override
     public Prompt acceptInput(ConversationContext conversationContext, String s) {
         if (s.equals(randomWords[index])) {
-            System.out.println("got word");
             handle.setUpperHand(((Player)conversationContext.getForWhom()).getName());
         }
-        System.out.println("will now return");
         return new FightPrompt(handle);
     }
 }
