@@ -26,25 +26,18 @@ public class TimeExecutor implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if ("transfer".equalsIgnoreCase(args[0])) {
             handleTransfer(sender, args);
-            return true;
         } else if ("dare".equalsIgnoreCase(args[0])) {
             handleDare(sender, args);
-            return true;
         } else if ("settime".equalsIgnoreCase(args[0])) {
             handleSetTime(sender, args);
-            return true;
         } else if ("addtime".equalsIgnoreCase(args[0])) {
             handleAddTime(sender, args);
-            return true;
         } else if ("kitten".equalsIgnoreCase(args[0])) {
             sender.sendMessage(kitten);
-            return true;
         } else {
             showHelp(sender);
         }
-
-
-        return false;
+        return true;
     }
 
     private void handleTransfer(CommandSender sender, String[] args) {
