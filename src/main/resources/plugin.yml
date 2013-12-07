@@ -1,0 +1,10 @@
+name: KittyCannon
+main: com.bitbyterstudios.kitty_cannon.KittyCannon
+version: ${project.version}
+author: se1by
+description: meow :3
+
+commands:
+  kitty:
+    usage: /<command> [make/destroy]
+    description: make yourself a kittycannon :3
