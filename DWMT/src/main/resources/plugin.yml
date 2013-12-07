@@ -1,0 +1,10 @@
+name: DWMT
+main: com.bitbyterstudios.dwmt.DontWasteMyTime
+version: ${project.version}
+author: se1by
+description: Time becomes currency. Go bankrupt -> you're dead.
+
+commands:
+  intime:
+    description: base command for everything, especially kittens :3
+    usage: /<command> [transfer/dare/setTime/addTime] [name] [amount/death]
